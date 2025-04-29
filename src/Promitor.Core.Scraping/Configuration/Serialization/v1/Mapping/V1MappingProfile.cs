@@ -106,6 +106,7 @@ namespace Promitor.Core.Scraping.Configuration.Serialization.v1.Mapping
                 .Include<DataShareResourceV1, DataShareResourceDefinition>()
                 .Include<DeviceProvisioningServiceResourceV1, DeviceProvisioningServiceResourceDefinition>()
                 .Include<EventHubsResourceV1, EventHubResourceDefinition>()
+                .Include<EventHubClusterResourceV1, EventHubClusterResourceDefinition>()
                 .Include<ExpressRouteCircuitResourceV1, ExpressRouteCircuitResourceDefinition>()
                 .Include<FileStorageResourceV1, FileStorageResourceDefinition>()
                 .Include<FrontDoorResourceV1, FrontDoorResourceDefinition>()
