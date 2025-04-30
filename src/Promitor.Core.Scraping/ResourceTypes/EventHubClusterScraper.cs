@@ -9,6 +9,8 @@ namespace Promitor.Core.Scraping.ResourceTypes
 {
     public class EventHubClusterScraper : AzureMonitorScraper<IAzureResourceDefinition>
     {
+        private const string ResourceUriTemplate = "subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.EventHub/clusters/{2}";
+
         public EventHubClusterScraper(ScraperConfiguration scraperConfiguration)
             : base(scraperConfiguration)
         {
@@ -21,8 +23,7 @@ namespace Promitor.Core.Scraping.ResourceTypes
             {
                 throw new ArgumentException("Invalid resource type", nameof(resource));
             }
-
-            return $"subscriptions/{subscriptionId}/resourceGroups/{eventHubClusterResource.ResourceGroupName}/providers/Microsoft.EventHub/clusters/{eventHubClusterResource.ClusterName}";
+            return string.Format(ResourceUriTemplate, subscriptionId, scrapeDefinition.ResourceGroupName, eventHubClusterResource.ClusterName);
         }
     }
 }
